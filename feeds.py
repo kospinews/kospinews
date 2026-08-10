@@ -21,7 +21,7 @@ FEEDS = [
 
     # ---------- 중앙경제지 (조간) ----------
     {"name": "매일경제",   "url": "https://www.mk.co.kr/rss/30000001/",                            "status": "ok",     "category": "조간", "naver_oid": "009"},
-    {"name": "한국경제",   "url": "https://www.hankyung.com/feed/all-news",                        "status": "ok",     "category": "조간", "naver_oid": "015"},
+    {"name": "한국경제",   "url": "https://www.hankookilbo.com/rss/economy",                        "status": "ok",     "category": "조간", "naver_oid": "015"},
     {"name": "서울경제",   "url": "https://www.sedaily.com/RSS/Total.xml",                         "status": "ok",     "category": "조간", "naver_oid": "011"},
     {"name": "이데일리",   "url": "https://rss.edaily.co.kr/edaily_news.xml",                      "status": "ok",     "category": "조간", "naver_oid": "018"},
     {"name": "머니투데이", "url": "https://rss.mt.co.kr/mt_news.xml",                              "status": "ok",     "category": "조간", "naver_oid": "008"},
@@ -38,7 +38,7 @@ FEEDS = [
     {"name": "내일신문",   "url": "https://www.naeil.com/rss/all.xml",                             "status": "verify", "category": "석간", "naver_oid": "086", "naver": True},
 
     # ---------- 전문지/종합일간지 ----------
-    {"name": "메트로경제", "url": "https://www.metroseoul.co.kr/rss/allArticle.xml",               "status": "verify", "category": "조간", "naver_oid": "463"},
+    {"name": "메트로경제", {"name": "메트로경제", "url": "", "status": "verify", "naver_oid": "??"},
 
     # ---------- 지방지(부산·울산·경남) ----------
     {"name": "부산일보",   "url": "https://www.busan.com/rss/allArticle.xml",                      "status": "verify", "category": "조간", "naver_oid": "082", "naver": True},
@@ -47,7 +47,7 @@ FEEDS = [
     # ---------- 온라인 경제신문 ----------
     {"name": "서울파이낸스","url": "https://www.seoulfn.com/rss/allArticle.xml",                    "status": "verify", "category": "조간", "naver_oid": None},
     {"name": "한국증권신문","url": "https://www.ksdaily.co.kr/rss/allArticle.xml",                  "status": "verify", "category": "조간", "naver_oid": None},
-    {"name": "디지털타임스","url": "https://www.dt.co.kr/rss/all.xml",                              "status": "verify", "category": "조간", "naver_oid": "029"},
+    {"name": "디지털타임스","url": "http://www.dt.co.kr/rss/economy.xml",                           "status": "verify", "category": "조간", "naver_oid": "029"},
 ]
 
 def all_feeds():
