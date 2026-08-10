@@ -21,7 +21,7 @@ FEEDS = [
 
     # ---------- 중앙경제지 (조간) ----------
     {"name": "매일경제",   "url": "https://www.mk.co.kr/rss/30000001/",                            "status": "ok",     "category": "조간", "naver_oid": "009"},
-    {"name": "한국경제",   "https://www.hankyung.com/feed/all-news",                                               "status": "verify", "category": "조간", "naver_oid": "015"},
+    {"name": "한국경제",   "url": "https://www.hankyung.com/feed/all-news",                        "status": "verify", "category": "조간", "naver_oid": "015"},
     {"name": "서울경제",   "url": "https://www.sedaily.com/RSS/Total.xml",                         "status": "ok",     "category": "조간", "naver_oid": "011"},
     {"name": "이데일리",   "url": "https://rss.edaily.co.kr/edaily_news.xml",                      "status": "ok",     "category": "조간", "naver_oid": "018"},
     {"name": "머니투데이", "url": "https://rss.mt.co.kr/mt_news.xml",                              "status": "ok",     "category": "조간", "naver_oid": "008"},
