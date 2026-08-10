@@ -38,7 +38,7 @@ FEEDS = [
     {"name": "내일신문",   "url": "https://www.naeil.com/rss/all.xml",                             "status": "verify", "category": "석간", "naver_oid": "086", "naver": True},
 
     # ---------- 전문지/종합일간지 ----------
-    {"name": "메트로경제", "url": "", "status": "verify", "naver_oid": "??"},
+    {"name": "메트로경제", "url": "", "status": "verify", "category": "조간", "naver_oid": None},
 
     # ---------- 지방지(부산·울산·경남) ----------
     {"name": "부산일보",   "url": "https://www.busan.com/rss/allArticle.xml",                      "status": "verify", "category": "조간", "naver_oid": "082", "naver": True},
