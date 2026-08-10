@@ -1,0 +1,43 @@
+name: send-alert
+
+on:
+  schedule:
+    - cron: '20 21 * * 0-4'     # KST 06:20 (평일) = UTC 전일 21:20
+    - cron: '0 4 * * 1-5'       # KST 13:00 (평일) = UTC 04:00
+    - cron: '20 5 * * 1-5'      # KST 14:20 (평일) = UTC 05:20
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: 'morning / afternoon1 / afternoon2'
+        default: 'morning'
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Decide slot
+        id: slot
+        run: |
+          case "${{ github.event.schedule }}" in
+            "20 21 * * 0-4") echo "slot=morning"    >> $GITHUB_OUTPUT ;;
+            "0 4 * * 1-5")   echo "slot=afternoon1" >> $GITHUB_OUTPUT ;;
+            "20 5 * * 1-5")  echo "slot=afternoon2" >> $GITHUB_OUTPUT ;;
+            *)               echo "slot=${{ github.event.inputs.slot }}" >> $GITHUB_OUTPUT ;;
+          esac
+      - name: Top-up collect
+        run: python collect.py
+      - name: Send email
+        env:
+          RUN_SLOT: ${{ steps.slot.outputs.slot }}
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PW: ${{ secrets.GMAIL_APP_PW }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+        run: python notify.py

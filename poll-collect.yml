@@ -1,0 +1,32 @@
+name: poll-collect
+
+on:
+  schedule:
+    - cron: '0,30 * * * *'      # 매 30분(UTC) 수집
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: state-commit
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Collect RSS
+        run: python collect.py
+      - name: Commit state
+        run: |
+          git config user.name "news-bot"
+          git config user.email "news-bot@users.noreply.github.com"
+          git add store.json listed_cache.json feeds_health.json 2>/dev/null || true
+          git commit -m "state update [skip ci]" || echo "nothing to commit"
+          git pull --rebase --autostash || true
+          git push || echo "push skipped"
