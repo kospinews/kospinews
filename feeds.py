@@ -9,12 +9,12 @@
 FEEDS = [
     # ---------- 중앙일간지 (조간) ----------
     {"name": "조선일보",   "url": "https://www.chosun.com/arc/outboundfeeds/rss/?outputType=xml", "status": "ok",     "category": "조간", "naver_oid": "023"},
-    {"name": "중앙일보",   "url": "https://rss.joins.com/joins_news_list.xml",                     "status": "verify", "category": "조간", "naver_oid": "025"},
+    {"name": "중앙일보",   "url": "https://rss.joins.com/joins_news_list.xml",                     "status": "verify", "category": "조간", "naver_oid": "025", "naver": True},
     {"name": "동아일보",   "url": "https://rss.donga.com/total.xml",                               "status": "ok",     "category": "조간", "naver_oid": "020"},
     {"name": "한겨레",     "url": "https://www.hani.co.kr/rss/",                                   "status": "ok",     "category": "조간", "naver_oid": "028"},
     {"name": "경향신문",   "url": "https://www.khan.co.kr/rss/rssdata/total_news.xml",             "status": "ok",     "category": "조간", "naver_oid": "032"},
     {"name": "국민일보",   "url": "https://www.kmib.co.kr/rss/data/kmibRssAll.xml",                "status": "ok",     "category": "조간", "naver_oid": "005"},
-    {"name": "한국일보",   "url": "https://www.hankookilbo.com/rss/all",                           "status": "verify", "category": "조간", "naver_oid": "469"},
+    {"name": "한국일보",   "url": "https://www.hankookilbo.com/rss/all",                           "status": "verify", "category": "조간", "naver_oid": "469", "naver": True},
     {"name": "세계일보",   "url": "https://www.segye.com/Articles/RSSList/segye_recent.xml",       "status": "ok",     "category": "조간", "naver_oid": "022"},
     {"name": "서울신문",   "url": "https://www.seoul.co.kr/xml/rss/rss_economy.xml",               "status": "ok",     "category": "조간", "naver_oid": "081"},
     {"name": "아시아투데이","url": "https://www.asiatoday.co.kr/rss/rss_all.xml",                   "status": "verify", "category": "조간", "naver_oid": "586", "naver": True},
@@ -47,12 +47,7 @@ FEEDS = [
     # ---------- 온라인 경제신문 ----------
     {"name": "서울파이낸스","url": "https://www.seoulfn.com/rss/allArticle.xml",                    "status": "verify", "category": "조간", "naver_oid": None},
     {"name": "한국증권신문","url": "https://www.ksdaily.co.kr/rss/allArticle.xml",                  "status": "verify", "category": "조간", "naver_oid": None},
-    {"name": "디지털타임스","url": "http://www.dt.co.kr/rss/economy.xml",                           "status": "verify", "category": "조간", "naver_oid": "029"},
+    {"name": "디지털타임스","url": "http://www.dt.co.kr/rss/economy.xml",                           "status": "verify", "category": "조간", "naver_oid": "029", "naver": True},
 ]
 
-def all_feeds():
-    return FEEDS
-
-def naver_fallback_feeds():
-    # RSS 검증 실패 시 네이버 우회 대상 (미확정 6곳)
-    return [f for f in FEEDS if f.get("naver")]
+def all
