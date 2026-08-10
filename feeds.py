@@ -50,4 +50,9 @@ FEEDS = [
     {"name": "디지털타임스","url": "http://www.dt.co.kr/rss/economy.xml",                           "status": "verify", "category": "조간", "naver_oid": "029", "naver": True},
 ]
 
-def all
+def all_feeds():
+    return FEEDS
+
+def naver_fallback_feeds():
+    # RSS 검증 실패 시 네이버 우회 대상
+    return [f for f in FEEDS if f.get("naver")]
