@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # feeds.py
-# 대상 신문 30개사 RSS 목록.
+# 대상 신문 29개사 RSS 목록. (메트로경제 제외)
 #   status "ok"     : 공식 RSS 확인/확정된 매체 (즉시 편입)
 #   status "verify" : 후보 주소. check_feeds.py 로 살아있는지 검증 후 편입.
 #                     죽어 있으면(naver=True) 네이버 언론사홈으로 자동 우회.
@@ -36,9 +36,6 @@ FEEDS = [
     {"name": "아시아경제", "url": "https://www.asiae.co.kr/rss/all.htm",                           "status": "ok",     "category": "석간", "naver_oid": "277"},
     {"name": "헤럴드경제", "url": "https://biz.heraldcorp.com/rss/010000000000.xml",               "status": "ok",     "category": "석간", "naver_oid": "016"},
     {"name": "내일신문",   "url": "https://www.naeil.com/rss/all.xml",                             "status": "verify", "category": "석간", "naver_oid": "086", "naver": True},
-
-    # ---------- 전문지/종합일간지 ----------
-    {"name": "메트로경제", "url": "", "status": "verify", "category": "조간", "naver_oid": None},
 
     # ---------- 지방지(부산·울산·경남) ----------
     {"name": "부산일보",   "url": "https://www.busan.com/rss/allArticle.xml",                      "status": "verify", "category": "조간", "naver_oid": "082", "naver": True},
