@@ -1,0 +1,29 @@
+name: send-alert
+on:
+  schedule:
+    # KST = UTC+9  (06:20 / 13:00 / 14:20 KST)
+    - cron: '20 21 * * *'   # 06:20 KST
+    - cron: '0 4 * * *'     # 13:00 KST
+    - cron: '20 5 * * *'    # 14:20 KST
+  workflow_dispatch:        # 수동 실행 버튼
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Restore store cache
+        uses: actions/cache@v4
+        with:
+          path: store.json
+          key: store-${{ github.run_id }}
+          restore-keys: store-
+      - name: Send alert
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PW: ${{ secrets.GMAIL_APP_PW }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python notify.py
